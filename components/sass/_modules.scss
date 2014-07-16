@@ -96,6 +96,20 @@ div.header {
       &:first-child {
         margin-top: 24px;
       }
+
+      .choice {
+        position: absolute;
+        z-index: 1;
+        left: 45.5%;
+        width: 44.5%;
+        height: 24px;
+        margin: 0 auto;
+        padding-top: 4px;
+        text-align: center;
+        span {
+          @extend %fontStyle;
+        }
+      }
       
       .place {
         @extend %inputStyle;
@@ -115,9 +129,9 @@ div.header {
       .destination {
         display: none;
         position: absolute;
-        z-index: 1;
-        left: 46%;
-        width: 46%;
+        z-index: 2;
+        left: 45.5%;
+        width: 44.5%;
         padding: 0;
         @extend %inputStyle;
         li {

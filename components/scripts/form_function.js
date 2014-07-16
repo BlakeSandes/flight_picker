@@ -1,10 +1,8 @@
 $ = require('jquery');
 
-$("li").on("focus", ".choosePlace", function() {
-  $(this).find("select #destinationOptions").focus();
-});
 
-
+//When submit button clicked, depending on option, presented with 
+// notification and confirm button.
 
 $(".button").on("click", function(evt) {
   evt.preventDefault();
@@ -12,33 +10,33 @@ $(".button").on("click", function(evt) {
       selection2 = $(".usOptions input:checked").val(), 
       selection3 = $(".euroOptions input:checked").val();
   
-  var confirmSelection = $(".notify + input[type=submit]").attr({value: "confirm", name: "confirm"});
+  var confirmSelection = $("<input type='submit' value='confirm' name='confirmSubmit'>");
+  
   function confirmIt() {
     $(".notify").on("click", confirmSelection, function() {
       $(this).closest(".notify").html("<p>Thank you, please proceed to payment</p>");
-      $(this).after(".button").show();
     }); 
   }    
+  
   var departing = $("#departing").val();
   var returning = $("#returning").val();
 
-  $(".notify").slideDown(300, function() {
+  $(".notify").slideDown('fast', function() {
     if (departing && returning) {
       if (selection1) {
         $(this).html("<p>Please confirm your reservation for " + selection1 +  " departing on " + 
           departing + " and returning on " + returning + ".</p>");
-        $(this).find("p").after(confirmSelection);
+        $(this).append(confirmSelection);
         confirmIt();
-
       } else if (selection2) {
         $(this).html("<p>Please confirm your reservation for " + selection2 +  " departing on " + 
           departing + " and returning on " + returning + ".</p>"); 
-        $(this).find("p").after(confirmSelection);
+        $(this).append(confirmSelection);
         confirmIt(); 
       } else if (selection3) {
         $(this).html("<p>Please confirm your reservation for " + selection3 +  " departing on " + 
           departing + " and returning on " + returning + ".</p>");
-        $(this).find("p").after(confirmSelection);
+        $(this).append(confirmSelection);
         confirmIt(); 
       } else {
         $(this).html("<p>Please select a departure city!</p>");
@@ -46,16 +44,26 @@ $(".button").on("click", function(evt) {
     } else {
       $(this).html("<p>Please select departing and returning dates</p>");
     }
-  });
-
-
-   
-     
+  }); 
 }); 
+
+
+//City options slideToggle when hovered over.
 
 $(".choosePlace").hover(function() {
   var $destination = $(this).find(".destination");
   $destination.slideToggle(200);
+
+});
+
+//Selected city option is added visible.
+
+$(".destination").on("click", "input[type=radio]", function() {
+  var choice = $("input[type=radio]:checked");
+  var unChoice = $("input[type=radio]");
+  $(this).closest(".destination").prev(".choice").html(choice.val());//function() {
+    //$(this).next().find(choice.val());  
+  //});  
 });
 
 

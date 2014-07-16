@@ -284,13 +284,13 @@ table {
 
 /*Core partials====*/
 /* line 3, ../components/sass/_mixins.scss */
-#times ol li input[type=date], #places > ol .choosePlace .place, #places > ol .choosePlace .destination, #places > ol .choosePlace .destination li, #places > ol .choosePlace .destination li input[type=radio] + label, .button {
+#times ol li input[type=date], #places > ol .choosePlace .place, #places > ol .choosePlace .destination, #places > ol .choosePlace .destination li, #places > ol .choosePlace .destination li input[type=radio] + label, .notify input[type=submit], .button {
   background: rgba(11, 186, 178, 0.85);
   box-shadow: inset -1px -1px 2px rgba(255, 255, 255, 0.75), inset 1px 1px 2px rgba(255, 255, 255, 0.75), 2px 0 2px rgba(87, 100, 102, 0.85), 0.5px 0.5px 1px gray, -0.5px -0.5px 1px gray;
   border-radius: 2px;
 }
 /* line 11, ../components/sass/_mixins.scss */
-#times ol li input[type=date]:hover, #places > ol .choosePlace .place:hover, #places > ol .choosePlace .destination:hover, #places > ol .choosePlace .destination li:hover, #places > ol .choosePlace .destination li input[type=radio] + label:hover, .button:hover {
+#times ol li input[type=date]:hover, #places > ol .choosePlace .place:hover, #places > ol .choosePlace .destination:hover, #places > ol .choosePlace .destination li:hover, #places > ol .choosePlace .destination li input[type=radio] + label:hover, .notify input[type=submit]:hover, .button:hover {
   background: #f7f28b;
   box-shadow: 1px 1px 0.5px gray, -1px -1px 0.5px gray, 2px 0 2px rgba(87, 100, 102, 0.85);
   border-radius: 2px;
@@ -298,24 +298,24 @@ table {
 }
 
 /* line 24, ../components/sass/_mixins.scss */
-#times ol li input[type=date]:focus, #places > ol .choosePlace .place:focus, #places > ol .choosePlace .destination:focus, #places > ol .choosePlace .destination li:focus, #places > ol .choosePlace .destination li input[type=radio] + label:focus, .button:focus {
+#times ol li input[type=date]:focus, #places > ol .choosePlace .place:focus, #places > ol .choosePlace .destination:focus, #places > ol .choosePlace .destination li:focus, #places > ol .choosePlace .destination li input[type=radio] + label:focus, .notify input[type=submit]:focus, .button:focus {
   outline: none;
   background: rgba(11, 186, 178, 0.15);
   box-shadow: 0 0 6px rgba(67, 78, 79, 0.85);
 }
 
 /* line 30, ../components/sass/_mixins.scss */
-#mainForm, div.header h1, .notify, .button {
+#mainForm, div.header h1, #places > ol .choosePlace .choice span, .notify, .notify input[type=submit], .button {
   color: #576466;
   text-shadow: 0.5px 0.5px 0.5px rgba(67, 78, 79, 0.85);
 }
 
 /* line 35, ../components/sass/_mixins.scss */
-#places > ol .choosePlace .destination li, #places > ol .choosePlace .destination li input[type=radio] + label, .button {
+#places > ol .choosePlace .destination li, #places > ol .choosePlace .destination li input[type=radio] + label, .notify input[type=submit], .button {
   background: #f7f28b;
 }
 /* line 37, ../components/sass/_mixins.scss */
-#places > ol .choosePlace .destination li:hover, #places > ol .choosePlace .destination li input[type=radio] + label:hover, .button:hover {
+#places > ol .choosePlace .destination li:hover, #places > ol .choosePlace .destination li input[type=radio] + label:hover, .notify input[type=submit]:hover, .button:hover {
   background: rgba(11, 186, 178, 0.85);
 }
 
@@ -483,49 +483,60 @@ div.header h1 {
   margin-top: 24px;
 }
 /* line 100, ../components/sass/_modules.scss */
+#places > ol .choosePlace .choice {
+  position: absolute;
+  z-index: 1;
+  left: 45.5%;
+  width: 44.5%;
+  height: 24px;
+  margin: 0 auto;
+  padding-top: 4px;
+  text-align: center;
+}
+/* line 114, ../components/sass/_modules.scss */
 #places > ol .choosePlace .place {
   float: left;
   width: 46%;
   margin: 0;
 }
-/* line 106, ../components/sass/_modules.scss */
+/* line 120, ../components/sass/_modules.scss */
 #places > ol .choosePlace .place li {
   margin: 0;
   padding: 3px 0 0 8px;
 }
-/* line 109, ../components/sass/_modules.scss */
+/* line 123, ../components/sass/_modules.scss */
 #places > ol .choosePlace .place li label:hover {
   cursor: pointer;
 }
-/* line 115, ../components/sass/_modules.scss */
+/* line 129, ../components/sass/_modules.scss */
 #places > ol .choosePlace .destination {
   display: none;
   position: absolute;
-  z-index: 1;
-  left: 46%;
-  width: 46%;
+  z-index: 2;
+  left: 45.5%;
+  width: 44.5%;
   padding: 0;
 }
-/* line 123, ../components/sass/_modules.scss */
+/* line 137, ../components/sass/_modules.scss */
 #places > ol .choosePlace .destination li {
   margin: 0;
   padding: 0;
   margin: 3px auto;
   text-align: center;
 }
-/* line 130, ../components/sass/_modules.scss */
+/* line 144, ../components/sass/_modules.scss */
 #places > ol .choosePlace .destination li:first-child {
   margin: 0;
 }
-/* line 133, ../components/sass/_modules.scss */
+/* line 147, ../components/sass/_modules.scss */
 #places > ol .choosePlace .destination li:last-child {
   margin-bottom: 0;
 }
-/* line 136, ../components/sass/_modules.scss */
+/* line 150, ../components/sass/_modules.scss */
 #places > ol .choosePlace .destination li input[type=radio] {
   display: none;
 }
-/* line 139, ../components/sass/_modules.scss */
+/* line 153, ../components/sass/_modules.scss */
 #places > ol .choosePlace .destination li input[type=radio] + label {
   margin: 0 auto;
   display: block;
@@ -557,9 +568,10 @@ div.header h1 {
   margin: 12px auto;
   float: left;
 }
-/* line 17, ../components/sass/_notification.scss */
+/* line 18, ../components/sass/_notification.scss */
 .notify input[type=submit] {
   display: block;
+  width: 96px;
   float: left;
   margin: 6px 0 12px 48px;
   padding: 6px;
@@ -571,7 +583,7 @@ div.header h1 {
   clear: both;
 }
 
-/* line 26, ../components/sass/_notification.scss */
+/* line 33, ../components/sass/_notification.scss */
 .button {
   display: block;
   float: right;
