@@ -4,13 +4,16 @@ $ = require('jquery');
 
 //When submit button clicked, depending on option, presented with 
 // notification and confirm button.
+ 
+
 
 $(".button").on("click", function(evt) {
   evt.preventDefault();
+
   var selection1 = $(".canadaOptions input:checked").val(),
-      selection2 = $(".usOptions input:checked").val(), 
+      selection2 = $(".usOptions input:checked").val(),
       selection3 = $(".euroOptions input:checked").val();
-  
+
   var confirmSelection = $("<input type='submit' value='confirm' name='confirmSubmit'>");
   
   function confirmIt() {
@@ -60,12 +63,29 @@ $(".choosePlace").hover(function() {
 //Selected city option is added visible.
 
 $(".destination").on("click", "input[type=radio]", function() {
-  var choice = $("input[type=radio]:checked");
-  var unChoice = $("input[type=radio]");
-  $(this).closest(".destination").prev(".choice").html(choice.val());//function() {
-    //$(this).next().find(choice.val());  
-  //});  
+
+  var selection1 = $(".canadaOptions input:checked").val(),
+      selection2 = $(".usOptions input:checked").val(),
+      selection3 = $(".euroOptions input:checked").val();
+
+  if (selection1) {
+    $(this).closest(".places").find(".usChoice").addClass("notChoice");
+    $(this).closest(".places").find(".euroChoice ").addClass("notChoice");
+    $(this).closest(".destination").prev(".choice").removeClass("notChoice");
+    $(this).closest(".destination").prev(".choice").html(selection1);
+  } else if (selection2) {
+    $(this).closest(".places").find(".cdnChoice").addClass("notChoice");
+    $(this).closest(".places").find(".euroChoice").addClass("notChoice");
+    $(this).closest(".destination").prev(".choice").removeClass("notChoice");
+    $(this).closest(".destination").prev(".choice").html(selection2);
+  } else if (selection3) {
+    $(this).closest(".places").find(".cdnChoice").addClass("notChoice");
+    $(this).closest(".places").find(".usChoice").addClass("notChoice");
+    $(this).closest(".destination").prev(".choice").removeClass("notChoice");
+    $(this).closest(".destination").prev(".choice").html(selection3);
+  }
 });
+
 
 
 

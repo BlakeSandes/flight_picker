@@ -35,8 +35,8 @@
     <div class="header">
     <h1>Select a Destination</h1>
   </div>
-  <form id="mainForm">
-    <fieldset id="times" title="Times">
+  <form class="mainForm">
+    <fieldset class="times" title="Times">
       <legend>Times</legend>
       <ol>
         <li>
@@ -49,7 +49,7 @@
         </li>
       </ol>
     </fieldset>
-    <fieldset id="places" title="Places">
+    <fieldset class="places" title="Places">
       <legend>Places</legend>
       <ol>
         <fieldset class="choosePlace">
@@ -58,7 +58,7 @@
               <label>Canada Deals</label>
             </li>  
           </ol>
-          <div class="choice"><span></span></div>
+          <div class="cdnChoice choice"></div>
           <ol class="destination canadaOptions">
             <li> 
               <input type="radio" name="destinationChoice" value="Vancouver" id="Vancouver">
@@ -93,7 +93,7 @@
               <label>US Deals</label>
             </li> 
           </ol>
-          <div class="choice"><span></span></div>
+          <div class="usChoice choice"></div>
           <ol class="destination usOptions">
             <li> 
               <input type="radio" name="destinationChoice" value="Portland" id="Portland">
@@ -127,7 +127,7 @@
               <label>Europe Deals</label>
             </li>
           </ol>
-          <div class="choice"><span></span></div>
+          <div class="euroChoice choice"></div>
           <ol class="destination euroOptions">
             <li> 
               <input type="radio" name="destinationChoice" value="London" id="London">

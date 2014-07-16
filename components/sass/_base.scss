@@ -21,7 +21,7 @@ input[type=date],input[type=submit] {
 
 /*======SHARED FORM STYLES======*/
 
-#mainForm {
+.mainForm {
   max-width: 400px;
   margin: 12px auto;
   @extend %fontStyle;

@@ -22,7 +22,7 @@ div.header {
 
 /*======TIMES======*/
 
-#times {
+.times {
 
   ol {
     li {
@@ -61,7 +61,7 @@ div.header {
 
 /*======PLACES======*/
 
-#places {
+.places {
   >ol {
     position: relative;
     @include clearfix;
@@ -96,7 +96,9 @@ div.header {
       &:first-child {
         margin-top: 24px;
       }
-
+      .notChoice {
+        display: none;
+      }
       .choice {
         position: absolute;
         z-index: 1;
@@ -106,9 +108,6 @@ div.header {
         margin: 0 auto;
         padding-top: 4px;
         text-align: center;
-        span {
-          @extend %fontStyle;
-        }
       }
       
       .place {
