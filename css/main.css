@@ -472,7 +472,7 @@ div.header h1 {
   z-index: 2;
   width: 83%;
   margin: 0 10% 36px 7%;
-  padding: 0;
+  padding-bottom: 3px;
   border: none;
   background: -webkit-linear-gradient(left, rgba(159, 183, 186, 0.65), #9fb7ba 80%);
   background: -o-linear-gradient(left, rgba(159, 183, 186, 0.65), #9fb7ba 80%);
@@ -498,7 +498,7 @@ div.header h1 {
   width: 44.5%;
   height: 24px;
   margin: 0 auto;
-  padding-top: 4px;
+  padding-top: .5px;
   text-align: center;
 }
 /* line 112, ../components/sass/_modules.scss */
